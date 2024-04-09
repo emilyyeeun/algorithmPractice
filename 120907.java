@@ -9,30 +9,29 @@ class Solution {
 			String op = splitted[1];
 			int secondNum = Integer.parseInt(splitted[2]);
 			int answer = Integer.parseInt(splitted[4]);
-			        if (isAddition(op)) {
-            if (firstNum + secondNum == answer) {
-                result[i] = "O";
-            } else {
-                result[i] = "X";
-            }
-        } else {
-            if (firstNum - secondNum == answer) {
-                result[i] = "O";
-            } else {
-                result[i] = "X";
-            }
-        }
-        i++;
-
-    }
-    return result;
-}
+		if (isAddition(op)) {
+           		if (firstNum + secondNum == answer) {
+				result[i] = "O";
+			} else {
+				result[i] = "X";
+			}
+		} else {
+			if (firstNum - secondNum == answer) {
+				result[i] = "O";
+			} else {
+				result[i] = "X";
+			}
+		}
+			i++;
+		}
+		return result;
+	}
 
 	private boolean isAddition(String op) {
 	    if (op.equals("-")) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+            	return false;
+	    } else {
+		return true;
+	    }
+	}
 }
