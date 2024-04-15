@@ -12,22 +12,14 @@ class Solution {
         
         int[] result = new int[targets.length];
         int index = 0;
-        int count = 0;
         for (String target: targets) {
-            for (Character letter: target.toCharArray()) {
-                if (inputMap.containsKey(letter)) {
-                    count += inputMap.get(letter);
-                } else {
-                    count = -1;
-                    break;
-                }
+            int count = 0;
+            for (char letter: target.toCharArray()) {
+                count += inputMap.getOrDefault(letter, -1);
+                if (count == -1) break;
             }
-            result[index] = count;
-            index++;
-            count = 0;
+            result[index++] = count;
         }
         return result;
-        
-        
     }
 }
