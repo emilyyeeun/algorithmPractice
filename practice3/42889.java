@@ -8,7 +8,8 @@ class Solution {
             int curr = i;
             int total = (int) Arrays.stream(stages).filter(k -> k >= curr).count();
             int fail = (int) Arrays.stream(stages).filter(k -> k == curr).count();
-            percent.put(curr, ((double) fail / total));
+            double value = (total == 0) ? 0.0 : ((double)fail / total);
+            percent.put(curr, value);
         }
         
         List<Integer> keySet = new ArrayList<>(percent.keySet());
