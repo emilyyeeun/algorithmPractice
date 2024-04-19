@@ -1,4 +1,3 @@
-// 1차 시도 (fail) 
 import java.util.*;
 class Solution {
     public int[] solution(int N, int[] stages) {
@@ -8,7 +7,7 @@ class Solution {
             int curr = i;
             int total = (int) Arrays.stream(stages).filter(k -> k >= curr).count();
             int fail = (int) Arrays.stream(stages).filter(k -> k == curr).count();
-            double value = (total == 0) ? 0.0 : ((double)fail / total);
+            double value = (total == 0 || fail == 0) ? 0.0 : ((double) fail / total);
             percent.put(curr, value);
         }
         
@@ -16,10 +15,13 @@ class Solution {
         keySet.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                if (percent.get(o1) > percent.get(o2)) {
+                // double의 compare 문제
+                // 내림차순
+                if (Double.compare(percent.get(o1), percent.get(o2)) > 0) {
                     return -1;
-                } else if (percent.get(o1) == percent.get(o2)) {
-                    return o1 - o2;
+                // 실패율이 같다면 작은 번호의 스테이지가 먼저 오도록 한다. 
+                } else if (Double.compare(percent.get(o1), percent.get(o2)) == 0) {
+                    return o1.compareTo(o2);
                 } else {
                     return 1;
                 }
@@ -29,7 +31,7 @@ class Solution {
         int[] result = new int[N];
         int i = 0;
         for (Integer key : keySet) {
-            result[i] = key;
+            result[i] = (int)key;
             i++;
         }
         return result;
