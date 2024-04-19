@@ -1,3 +1,4 @@
+// 첫번째 시도
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.*;
@@ -50,3 +51,5 @@ class Solution {
         return result;     
     }
 }
+
+// 리팩토링
