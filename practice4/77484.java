@@ -15,7 +15,7 @@ class Solution {
             solution[0] = solution[1];
         } else if (count == 6) {
             solution[0] = 1;
-        }else {
+        } else {
             solution[0] = returnRanking((int)count + winListSize);
         }
         
