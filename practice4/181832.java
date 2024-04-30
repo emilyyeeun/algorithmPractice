@@ -6,7 +6,7 @@ class Solution {
         int curr = 1;
         int direction = 1;
 
-        while (curr <= n * n) { // Corrected the condition here
+        while (curr <= n * n) { 
             answer[i][j] = curr++;
 
             // Move right
