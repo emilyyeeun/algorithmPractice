@@ -9,13 +9,14 @@ class Main {
 
         int n = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
+        
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             String nextToken = st.nextToken(" ");
+            
             switch (nextToken) {
                 case "push":
-                    int num = Integer.parseInt(st.nextToken());
-                    stack.push(num);
+                    stack.push(Integer.parseInt(st.nextToken()));
                     break;
                 case "pop":
                     if (stack.isEmpty()) {
