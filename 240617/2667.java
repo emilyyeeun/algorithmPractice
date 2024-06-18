@@ -33,11 +33,7 @@ public class DayTwo {
                     int curr = bfs(i, j);
                     counter++;
                     currApt = 0;
-                    if (curr > 1) {
-                        answer.add(curr);
-                    } else if (curr == 1){
-                        answer.add(1);
-                    }
+                    answer.add(curr);
                 }
             }
         }
@@ -49,7 +45,7 @@ public class DayTwo {
 
     }
 
-    private static int bfs(int i, int j) throws IOException {
+    private static int bfs(int i, int j) {
         currApt++;
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{i, j});
