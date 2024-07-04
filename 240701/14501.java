@@ -19,15 +19,7 @@ public class Main {
     }
 
     private static void getMaxProfit(int quit, int[][] consulting) {
-        int max = 0;
-        for (int i = 1; i <= quit; i++) {
-            int endingTime = i + consulting[i][0];
-            if (endingTime > max) {
-                max = endingTime;
-            }
-        }
-
-        int[] dp = new int[max + 1];
+        int[] dp = new int[quit + 1];
 
         for (int j = 1; j <= quit; j++) {
             if (dp[j] < dp[j-1]) {
@@ -36,10 +28,6 @@ public class Main {
             int newTime = j - 1 + (consulting[j][0]);
             dp[newTime] = Math.max(dp[j-1] + consulting[j][1],
                     dp[newTime]);
-        }
-
-        for (int i = 1; i <= max; i++) {
-            System.out.println(i + ":" + dp[i]);
         }
 
         int maxProfit = 0;
