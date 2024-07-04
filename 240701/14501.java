@@ -19,7 +19,15 @@ public class Main {
     }
 
     private static void getMaxProfit(int quit, int[][] consulting) {
-        int[] dp = new int[quit + 2];
+        int max = 0;
+        for (int i = 1; i <= quit; i++) {
+            int endingTime = i + consulting[i][0];
+            if (endingTime > max) {
+                max = endingTime;
+            }
+        }
+
+        int[] dp = new int[max + 1];
 
         for (int j = 1; j <= quit; j++) {
             if (dp[j] < dp[j-1]) {
