@@ -12,6 +12,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             String opCode = st.nextToken();
+
             printOpcode(opCode);
             if (opCode.charAt(opCode.length() - 1) == 'C') {
                 System.out.print("1");
@@ -22,7 +23,9 @@ public class Main {
             printRegisterD(Integer.parseInt(st.nextToken()));
             printRegisterA(Integer.parseInt(st.nextToken()), opCode);
             printRegisterB(Integer.parseInt(st.nextToken()), opCode);
-            System.out.println();
+            if (i != n - 1) {
+                System.out.println();
+            }
         }
 
     }
@@ -31,7 +34,7 @@ public class Main {
         String result = "";
 
         if (opCode.contains("ADD")) {
-            result = "O000";
+            result = "0000";
         } else if (opCode.contains("SUB")) {
             result = "0001";
         } else if (opCode.contains("MOV")) {
@@ -43,8 +46,10 @@ public class Main {
         } else if (opCode.contains("NOT")) {
             result = "0101";
         } else if (opCode.contains("MULT")) {
-            result = "0111";
+            result = "0110";
         } else if (opCode.contains("LSFTL")) {
+            result = "0111";
+        } else if (opCode.contains("LSFTR")) {
             result = "1000";
         } else if (opCode.contains("ASFTR")) {
             result = "1001";
