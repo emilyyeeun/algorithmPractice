@@ -67,10 +67,10 @@ public class Main {
         }
     }
     private static void printRegisterB(int num, String opCode) {
-        String binary = String.format("%3s", Integer.toBinaryString(num)).replace(' ', '0');
         if (opCode.endsWith("C")) {
-            System.out.print(binary);
+            System.out.print(String.format("%4s", Integer.toBinaryString(num)).replace(' ', '0'));
         } else {
+            String binary = String.format("%3s", Integer.toBinaryString(num)).replace(' ', '0');
             System.out.print(binary + "0");
         }
     }
